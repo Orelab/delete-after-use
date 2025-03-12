@@ -39,14 +39,27 @@ jobs:
     - name: Build
       run: npm run build
 
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-files
+        path: .next/
+        retention-days: 1
+
+    - name: Download build artifacts
+      uses: actions/download-artifact@v3
+      with:
+        name: build-files
+        path: .next/
+
     - name: Deploy to VPS
       uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        source: "dist/"
-        target: "/home/ubuntu/delete-after-use/www/"
+        source: ".next/"
+        target: "/home/${{ secrets.VPS_USERNAME }}/delete-after-use/www/"
         strip_components: 1
         timeout: 120s
         rm: true  # Supprime les fichiers existants
