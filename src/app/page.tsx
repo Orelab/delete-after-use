@@ -6,7 +6,7 @@ export default function Home() {
       <main className={styles.main}>
         <h1 className={styles.title}>Bienvenue</h1>
         <p className={styles.description}>
-          Découvrez notre approche innovante pour votre réussite
+          Nous sommes heureux de vous accueillir sur notre plateforme
         </p>
       </main>
     </div>
