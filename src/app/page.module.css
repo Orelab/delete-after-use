@@ -108,6 +108,23 @@ a.secondary {
   flex-shrink: 0;
 }
 
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #3b82f6, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 1.25rem;
+  color: #4b5563;
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.6;
+}
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
